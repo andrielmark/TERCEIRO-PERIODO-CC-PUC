@@ -1,0 +1,13 @@
+1. π first_name, last_name(σ gender = 'F' (actors))
+
+2. π name(σ year > 1999 (movies))
+
+3. π name, first_name, last_name(movies_directors ⨝ director_id = id directors ⨝ movie_id = id movies)
+
+4. π name, first_name, last_name, role ((σ rank > 6(movies)) ⨝ movie_id = id roles ⨝ actor_id = id actors)
+
+5. γ first_name, last_name, COUNT(∗) (directors⨝id=director_id movies_directors)
+
+6. γ genre, COUNT(∗) (movies_genres)
+
+7. γ genre, AVG(rank), MIN(rank), MAX(rank) (movies_genres⨝movie_id=id movies)

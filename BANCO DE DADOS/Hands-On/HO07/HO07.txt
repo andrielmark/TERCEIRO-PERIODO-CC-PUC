@@ -1,0 +1,44 @@
+Andriel Mark da Silva Pinto - 1528633
+
+1.
+SELECT first_name, last_name
+FROM actors
+WHERE gender = 'F';
+
+2.
+SELECT movie_name
+FROM movies
+WHERE release_year > 1999;
+
+3.
+SELECT m.movie_name, d.director_name
+FROM movies m
+JOIN directors d ON m.director_id = d.director_id;
+
+4.
+SELECT m.movie_name, a.first_name, a.last_name, r.role
+FROM movies m
+JOIN movie_cast r ON m.movie_id = r.movie_id
+JOIN actors a ON r.actor_id = a.actor_id
+WHERE m.rating > 6;
+
+5.
+SELECT d.director_name, COUNT(m.movie_id) AS number_of_movies
+FROM directors d
+JOIN movies m ON d.director_id = m.director_id
+GROUP BY d.director_name;
+
+6.
+SELECT genre, COUNT(m.movie_id) AS number_of_movies
+FROM movies m
+GROUP BY genre;
+
+7.
+SELECT genre, 
+       AVG(m.rating) AS avg_rating, 
+       MIN(m.rating) AS min_rating, 
+       MAX(m.rating) AS max_rating
+FROM movies m
+GROUP BY genre;
+
+
